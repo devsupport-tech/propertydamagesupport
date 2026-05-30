@@ -1,15 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e3046;
+
+  /* CBRS Brand Colors */
+  --cbrs-primary: #1e3046;
+  --cbrs-secondary: #6B7F35;
+  --cbrs-accent: #D4611C;
+  --cbrs-emergency: #dc2626;
+
+  /* Service Colors */
+  --service-water: #3b82f6;
+  --service-fire: #f97316;
+  --service-storm: #8b5cf6;
+  --service-mold: #22c55e;
+  --service-drone: #0ea5e9;
+  --service-insurance: #f59e0b;
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  --color-cbrs-primary: var(--cbrs-primary);
+  --color-cbrs-secondary: var(--cbrs-secondary);
+  --color-cbrs-accent: var(--cbrs-accent);
+  --color-cbrs-emergency: var(--cbrs-emergency);
+
+  --color-service-water: var(--service-water);
+  --color-service-fire: var(--service-fire);
+  --color-service-storm: var(--service-storm);
+  --color-service-mold: var(--service-mold);
+  --color-service-drone: var(--service-drone);
+  --color-service-insurance: var(--service-insurance);
+
+  /* Fonts */
+  --font-sans: 'Inter', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  /* Radius */
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +53,42 @@
 }
 
 body {
-  background: var(--background);
+  background-image: linear-gradient(to bottom right, #f9fafb, #ffffff, #f9fafb);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.025em;
+  color: var(--cbrs-primary);
+}
+
+/* CBRS Glass Card Effect (from cbrsgroup.com) */
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Transition utilities */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
