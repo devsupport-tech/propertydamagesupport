@@ -9,8 +9,8 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  headline = 'Complete Property Damage Solutions in Houston',
-  subheadline = 'Professional restoration, inspections, claims support, design services, and expert witness testimony across 8 specialized service pillars',
+  headline = 'Your Partner in Property Recovery',
+  subheadline = 'Comprehensive property damage solutions including restoration, inspections, claims support, and design services',
   showTrustBadges = true,
 }: HeroSectionProps) {
   return (
@@ -47,21 +47,20 @@ export default function HeroSection({
 
           {/* Main headline with gradient accent */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
-            <span className="text-cbrs-navy-900">Complete Property</span>
+            <span className="text-cbrs-navy-900">Your Partner in</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cbrs-terracotta-600 to-cbrs-olive-600 mt-2">
-              Damage Solutions
+              Property Recovery
             </span>
           </h1>
 
           {/* Subheadline with visual separation */}
           <p className="text-xl md:text-2xl text-neutral-600 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
-            Professional restoration, inspections, claims support, design services, and expert witness testimony across
-            <span className="font-medium text-cbrs-navy-800"> 8 specialized service pillars</span>
+            Comprehensive property damage solutions including restoration, inspections, claims support, and design services
           </p>
 
           {/* Service badges preview */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-            {['Restoration', 'Inspections', 'Claims', 'Design', 'Legal Support'].map(service => (
+            {['Restoration', 'Inspections', 'Claims Support', 'Design', 'Organization'].map(service => (
               <span
                 key={service}
                 className="px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-neutral-200 text-sm font-medium text-neutral-700 shadow-sm"
