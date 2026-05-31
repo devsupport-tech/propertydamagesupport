@@ -1,6 +1,7 @@
 import React from 'react';
 import { ServiceCard } from '@/components/ui/ServiceCard';
 import { services } from '@/config/site';
+import FadeIn from '@/components/animations/FadeIn';
 
 interface ServicesGridProps {
   title?: string;
@@ -25,26 +26,29 @@ export default function ServicesGrid({
     <section className="py-20 px-6">
       <div className="container max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-primary mb-4">
-            {title}
-          </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            {subtitle}
-          </p>
-        </div>
+        <FadeIn delay={100}>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-primary mb-4">
+              {title}
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+              {subtitle}
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Services grid */}
         <div className={`grid grid-cols-1 ${gridCols} gap-8`}>
-          {displayServices.map((service) => (
-            <ServiceCard
-              key={service.id}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              href={service.href}
-              color={service.color}
-            />
+          {displayServices.map((service, index) => (
+            <FadeIn key={service.id} delay={200 + index * 100}>
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                href={service.href}
+                color={service.color}
+              />
+            </FadeIn>
           ))}
         </div>
 
