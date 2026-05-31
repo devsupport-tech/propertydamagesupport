@@ -11,8 +11,8 @@ export default function Home() {
 
       {/* Services Grid - Card Navigation Hub */}
       <ServicesGrid
-        title="Emergency Property Damage Services"
-        subtitle="24/7 professional restoration services for water damage, fire damage, storm damage, and more"
+        title="Our Service Pillars"
+        subtitle="Complete property damage solutions across 8 specialized service areas"
         featuredOnly={true}
         columns={3}
       />
@@ -80,24 +80,24 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: '⚡',
-                title: 'Rapid Response',
-                description: '30-60 minute emergency response time across Houston',
+                icon: '🏛️',
+                title: '8 Service Pillars',
+                description: 'Comprehensive property damage solutions across specialized service areas',
               },
               {
                 icon: '🛡️',
-                title: 'Licensed & Insured',
-                description: 'Fully licensed, certified, and insured restoration professionals',
+                title: 'Licensed & Certified',
+                description: 'IICRC-certified professionals with industry expertise and credentials',
               },
               {
                 icon: '📋',
-                title: 'Insurance Experts',
-                description: 'Direct insurance billing and claim assistance included',
+                title: 'Insurance Support',
+                description: 'Professional documentation and inspection services for claim submission',
               },
               {
                 icon: '⭐',
-                title: '100% Satisfaction',
-                description: 'Guaranteed quality workmanship and customer satisfaction',
+                title: 'Professional Service',
+                description: 'Quality workmanship and comprehensive property damage expertise',
               },
             ].map((benefit, index) => (
               <div
@@ -237,22 +237,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Emergency CTA Section */}
-      <section className="py-16 px-6 bg-cbrs-emergency">
+      {/* Contact CTA Section */}
+      <section className="py-16 px-6 bg-gradient-to-br from-cbrs-primary to-cbrs-accent">
         <div className="container max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Emergency? We're Available 24/7
+            Get Professional Property Damage Support
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Don't wait - immediate action can prevent further damage and save you thousands
+            Contact us to discuss your property damage needs and explore our comprehensive service solutions
           </p>
-          <a
-            href={`tel:${siteConfig.phoneRaw}`}
-            className="inline-flex items-center gap-3 px-8 py-5 bg-white text-cbrs-emergency text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
-          >
-            <span className="text-2xl">📞</span>
-            Call Now: {siteConfig.phone}
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={`tel:${siteConfig.phoneRaw}`}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-cbrs-primary text-lg font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
+            >
+              <span className="text-2xl">📞</span>
+              {siteConfig.phone}
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white text-lg font-bold rounded-full hover:bg-white/20 transition-all"
+            >
+              <span className="text-2xl">✉️</span>
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
     </main>

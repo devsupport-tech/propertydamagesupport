@@ -9,8 +9,8 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  headline = 'Property Damage? We\'re Here 24/7',
-  subheadline = 'Emergency water damage, fire damage, and storm damage restoration services in Houston',
+  headline = 'Complete Property Damage Solutions in Houston',
+  subheadline = 'Professional restoration, inspections, claims support, design services, and expert witness testimony across 8 specialized service pillars',
   showTrustBadges = true,
 }: HeroSectionProps) {
   return (
@@ -19,17 +19,6 @@ export default function HeroSection({
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50 opacity-60" />
 
       <div className="container relative z-10 max-w-5xl mx-auto text-center">
-        {/* Emergency badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 glass-card rounded-full">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cbrs-emergency opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-cbrs-emergency"></span>
-          </span>
-          <span className="text-sm font-semibold text-cbrs-emergency uppercase tracking-wide">
-            Available Now
-          </span>
-        </div>
-
         {/* Main headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-cbrs-primary mb-6 leading-tight">
           {headline}
@@ -44,19 +33,19 @@ export default function HeroSection({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cbrs-emergency hover:bg-red-700 text-white text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cbrs-primary hover:bg-blue-700 text-white text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl w-full sm:w-auto"
           >
             <span className="text-2xl" aria-hidden="true">
               📞
             </span>
-            Call Now: {siteConfig.phone}
+            {siteConfig.phone}
           </a>
 
           <a
             href="/contact"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-cbrs-primary text-lg font-semibold rounded-full border-2 border-cbrs-primary shadow-lg transition-all hover:scale-105 w-full sm:w-auto"
           >
-            Get Free Estimate
+            Request Consultation
             <span aria-hidden="true">→</span>
           </a>
         </div>
