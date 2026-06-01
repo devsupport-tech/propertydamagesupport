@@ -3,7 +3,7 @@
 export const siteConfig = {
   name: "Property Damage Support",
   legalName: "CBRS Group",
-  description: "Complete property damage solutions in Houston: restoration, inspections, claims support, design & expert witness services. 8 specialized service pillars.",
+  description: "Complete property damage solutions in Houston: restoration, inspections, claims support, packout services, design & expert witness services. 9 specialized service pillars.",
   url: "https://propertydamagesupport.com",
   phone: "(832) 608-0535",
   phoneRaw: "+18326080535",
@@ -109,6 +109,16 @@ export const services = [
     color: "slate",
     featured: true,
   },
+  {
+    id: "packout-services",
+    title: "Packout & Storage",
+    shortTitle: "Packout",
+    description: "Professional contents packing, inventory cataloging, secure climate-controlled storage, and complete pack-back services during restoration.",
+    icon: "📦",
+    href: "/packout-services",
+    color: "orange",
+    featured: true,
+  },
 ] as const;
 
 export const serviceAreas = {
@@ -155,7 +165,7 @@ export const allServiceAreas = [
 ];
 
 export const trustBadges = [
-  { text: "8 Specialized Service Pillars", icon: "🏛️" },
+  { text: "9 Specialized Service Pillars", icon: "🏛️" },
   { text: "Insurance Documentation Support", icon: "📋" },
   { text: "Licensed & Certified Professionals", icon: "✓" },
   { text: "Comprehensive Property Solutions", icon: "🏠" },
