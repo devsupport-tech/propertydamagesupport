@@ -54,39 +54,38 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center px-6 py-20 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50 opacity-60" />
+      <section className="relative min-h-[500px] flex items-center justify-center px-6 py-20 md:py-32 bg-gradient-to-br from-cbrs-navy-900 to-cbrs-navy-800">
 
         <div className="container relative z-10 max-w-5xl mx-auto">
           {/* Breadcrumb */}
           <div className="flex justify-center mb-6">
-            <nav className="flex items-center gap-2 px-6 py-3 glass-card rounded-full text-sm">
-              <Link href="/service-areas" className="text-cbrs-primary hover:text-cbrs-accent transition-colors">
+            <nav className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-sm">
+              <Link href="/service-areas" className="text-white/90 hover:text-white transition-colors">
                 Service Areas
               </Link>
-              <span className="text-gray-400">/</span>
-              <Link href={`/service-areas/${citySlug}`} className="text-cbrs-primary hover:text-cbrs-accent transition-colors">
+              <span className="text-white/50">/</span>
+              <Link href={`/service-areas/${citySlug}`} className="text-white/90 hover:text-white transition-colors">
                 {cityName}
               </Link>
-              <span className="text-gray-400">/</span>
-              <span className="text-gray-600">{service.title}</span>
+              <span className="text-white/50">/</span>
+              <span className="text-white">{service.title}</span>
             </nav>
           </div>
 
           {/* Service Icon Badge */}
           <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-2xl">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl">
               <span className="text-5xl">{service.icon}</span>
             </div>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-cbrs-primary text-center mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-4">
             {service.title} in {cityName}
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-neutral-200 text-center mb-8 max-w-3xl mx-auto">
             Fast response to {cityName} · {service.heroSubheadline}
           </p>
 
@@ -94,14 +93,16 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="px-8 py-4 bg-cbrs-emergency text-white text-lg font-bold rounded-full shadow-lg hover:scale-105 transition-all inline-flex items-center gap-2"
+              className="px-8 py-4 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-terracotta-700 text-white text-lg font-bold rounded-full shadow-lg hover:scale-105 transition-all inline-flex items-center gap-2"
             >
-              <span>📞</span>
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
               Call Now: {siteConfig.phone}
             </a>
             <Link
               href="/contact"
-              className="px-8 py-4 glass-card text-cbrs-primary text-lg font-semibold rounded-full hover:bg-white hover:shadow-lg transition-all"
+              className="px-8 py-4 bg-white text-cbrs-navy-900 text-lg font-semibold rounded-full hover:bg-neutral-100 hover:shadow-lg transition-all"
             >
               Get Free Estimate
             </Link>
@@ -110,7 +111,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
             {[`Serving ${cityName}`, '24/7 Emergency', 'Licensed & Insured', 'Free Estimates'].map((badge, idx) => (
-              <div key={idx} className="px-4 py-2 glass-card rounded-full text-sm font-medium text-cbrs-primary">
+              <div key={idx} className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white">
                 {badge}
               </div>
             ))}
@@ -121,16 +122,16 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       {/* Service Overview */}
       <section className="py-12 px-6 bg-white">
         <div className="container max-w-4xl mx-auto text-center">
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
             {service.description} We provide fast emergency response to {cityName} and surrounding areas.
           </p>
         </div>
       </section>
 
       {/* Sub-Services */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 px-6 bg-neutral-50">
         <div className="container max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-primary text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-navy-900 text-center mb-12">
             {service.title} Services in {cityName}
           </h2>
 
@@ -138,12 +139,12 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
             {service.subServices.map((subService) => (
               <div
                 key={subService.id}
-                className="p-6 glass-card rounded-xl border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all"
+                className="p-6 glass-card rounded-xl border border-neutral-200 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
-                <h3 className="text-xl font-bold text-cbrs-primary mb-3">
+                <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
                   {subService.title}
                 </h3>
-                <p className="text-gray-700 mb-4">{subService.shortDescription}</p>
+                <p className="text-neutral-700 mb-4">{subService.shortDescription}</p>
                 <div className="flex flex-wrap gap-2">
                   {subService.keywords.slice(0, 3).map((keyword, idx) => (
                     <span
@@ -163,10 +164,10 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       {/* Process Steps */}
       <section className="py-20 px-6">
         <div className="container max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-primary text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-navy-900 text-center mb-4">
             Our Process in {cityName}
           </h2>
-          <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-neutral-700 text-center mb-12 max-w-2xl mx-auto">
             Proven 5-step restoration process for {cityName} properties
           </p>
 
@@ -186,11 +187,11 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
                     <div className="text-4xl mb-3">{step.icon}</div>
                   )}
 
-                  <h3 className="text-lg font-bold text-cbrs-primary mb-2">
+                  <h3 className="text-lg font-bold text-cbrs-navy-900 mb-2">
                     {step.title}
                   </h3>
 
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-neutral-700">
                     {step.description}
                   </p>
                 </div>
@@ -201,10 +202,10 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 px-6 bg-neutral-50">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-cbrs-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-cbrs-navy-900 mb-4">
               Why {cityName} Chooses Us
             </h2>
           </div>
@@ -237,10 +238,10 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
                 className="text-center p-6 glass-card rounded-xl hover:shadow-lg transition-all"
               >
                 <div className="text-5xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold text-cbrs-primary mb-3">
+                <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-700">{benefit.description}</p>
+                <p className="text-neutral-700">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -250,20 +251,20 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       {/* FAQ Section */}
       <section className="py-20 px-6">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-primary text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-cbrs-navy-900 text-center mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-700 text-center mb-12">
+          <p className="text-lg text-neutral-700 text-center mb-12">
             Common questions about {service.title.toLowerCase()} in {cityName}
           </p>
 
           <div className="space-y-6">
             {service.faqs.map((faq, idx) => (
-              <div key={idx} className="p-6 glass-card rounded-xl border border-gray-200">
-                <h3 className="text-xl font-bold text-cbrs-primary mb-3">
+              <div key={idx} className="p-6 glass-card rounded-xl border border-neutral-200">
+                <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-neutral-700 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -273,10 +274,10 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       </section>
 
       {/* Other Services in City */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 px-6 bg-neutral-50">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-cbrs-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-cbrs-navy-900 mb-4">
               Other Services in {cityName}
             </h2>
           </div>
@@ -293,7 +294,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
                     {otherService.icon}
                   </div>
-                  <span className="text-center font-bold text-cbrs-primary group-hover:text-cbrs-accent transition-colors">
+                  <span className="text-center font-bold text-cbrs-navy-900 group-hover:text-cbrs-terracotta-600 transition-colors">
                     {otherService.shortTitle}
                   </span>
                 </Link>
@@ -303,7 +304,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       </section>
 
       {/* Emergency CTA Section */}
-      <section className="py-16 px-6 bg-cbrs-emergency">
+      <section className="py-16 px-6 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-terracotta-700">
         <div className="container max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Emergency {service.title} in {cityName}?
@@ -313,9 +314,11 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           </p>
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="inline-flex items-center gap-3 px-8 py-5 bg-white text-cbrs-emergency text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-5 bg-white text-cbrs-terracotta-700 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
           >
-            <span className="text-2xl">📞</span>
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
             Call Now: {siteConfig.phone}
           </a>
         </div>
