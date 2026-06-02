@@ -15,11 +15,11 @@ export default function HeroSection({
   showTrustBadges = true,
 }: HeroSectionProps) {
   return (
-    <section className="relative min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-cbrs-navy-900 pt-28 md:pt-32">
+    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden bg-cbrs-navy-900">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-cbrs-navy-900 via-cbrs-navy-800 to-cbrs-navy-900 opacity-50" />
 
-      <div className="container relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-32">
+      <div className="container relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Trust indicator badge */}
           <FadeIn delay={100} direction="down">
@@ -33,7 +33,7 @@ export default function HeroSection({
 
           {/* Main headline with orange accent */}
           <FadeIn delay={200}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
               Water & Fire<br />
               Damage Restoration<br />
               <span className="text-cbrs-terracotta-600">Done Right</span>
@@ -42,24 +42,24 @@ export default function HeroSection({
 
           {/* Subheadline */}
           <FadeIn delay={300}>
-            <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-white/60 mb-8 leading-relaxed max-w-2xl mx-auto">
               Complete property damage solutions — from water extraction to fire damage rebuild. One dedicated team managing your entire project.
             </p>
           </FadeIn>
 
           {/* Service stats */}
           <FadeIn delay={400}>
-            <div className="flex flex-wrap items-center justify-center gap-10 mb-10 border-t border-white/10 pt-6">
+            <div className="flex flex-wrap items-center justify-center gap-8 mb-8 border-t border-white/10 pt-4">
               {[
                 { value: '9', label: 'Service Pillars' },
                 { value: '100+', label: 'Projects Completed' },
                 { value: 'Houston', label: 'Service Area' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="font-heading text-2xl md:text-3xl font-bold text-cbrs-terracotta-600">
+                  <p className="font-heading text-xl md:text-2xl font-bold text-cbrs-terracotta-600">
                     {stat.value}
                   </p>
-                  <p className="text-xs text-white/50">{stat.label}</p>
+                  <p className="text-xs text-white/50 mt-0.5">{stat.label}</p>
                 </div>
               ))}
             </div>
