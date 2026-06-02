@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #1e3046;
+  --foreground: #0d2237;
 
-  /* CBRS Navy (Primary Brand) */
-  --cbrs-navy-900: #0F1C2E;
-  --cbrs-navy-800: #1e3046;
+  /* CBRS Navy (Primary Brand) - Updated to match operations.cbrsgroup */
+  --cbrs-navy-900: #0d2237;
+  --cbrs-navy-800: #0d2237;
   --cbrs-navy-700: #2A4A6A;
   --cbrs-navy-600: #3D5A7D;
 
@@ -17,9 +17,9 @@
   --cbrs-olive-500: #7D9240;
   --cbrs-olive-400: #A4BC6A;
 
-  /* CBRS Terracotta (Accent) */
+  /* CBRS Terracotta/Orange (Accent) - Updated to match operations.cbrsgroup */
   --cbrs-terracotta-700: #B54515;
-  --cbrs-terracotta-600: #D4611C;
+  --cbrs-terracotta-600: #E8691A;
   --cbrs-terracotta-500: #E8753F;
   --cbrs-terracotta-400: #F2935F;
 
@@ -111,9 +111,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Fonts - Updated to match operations.cbrsgroup */
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
 
   /* Border Radius */
   --radius-sm: 0.25rem;
@@ -150,14 +152,14 @@ html {
 body {
   background-color: #ffffff;
   color: var(--cbrs-navy-800);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--cbrs-navy-900);

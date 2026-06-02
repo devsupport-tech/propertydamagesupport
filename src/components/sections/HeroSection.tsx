@@ -15,76 +15,62 @@ export default function HeroSection({
   showTrustBadges = true,
 }: HeroSectionProps) {
   return (
-    <section className="relative min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden">
-      {/* Sophisticated Background */}
-      <div className="absolute inset-0">
-        {/* Gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-blue-50" />
-
-        {/* Mesh gradient overlay for depth */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(212, 97, 28, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 90% 90%, rgba(107, 127, 53, 0.08) 0%, transparent 50%)
-            `
-          }}
-        />
-      </div>
+    <section className="relative min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-cbrs-navy-900 pt-28 md:pt-32">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cbrs-navy-900 via-cbrs-navy-800 to-cbrs-navy-900 opacity-50" />
 
       <div className="container relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-32">
         <div className="max-w-4xl mx-auto text-center">
           {/* Trust indicator badge */}
           <FadeIn delay={100} direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-neutral-200 shadow-sm mb-8">
-              <svg className="w-5 h-5 text-success-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm font-medium text-neutral-700">
-                Trusted by 1,000+ Houston Property Owners
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm mb-8">
+              <span className="h-1.5 w-1.5 rounded-full bg-cbrs-terracotta-600" />
+              <span className="text-sm font-medium text-white/80">
+                Professional Restoration Services · Houston, TX
               </span>
             </div>
           </FadeIn>
 
-          {/* Main headline with gradient accent */}
+          {/* Main headline with orange accent */}
           <FadeIn delay={200}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
-              <span className="text-cbrs-navy-900">Your Partner in</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cbrs-terracotta-600 to-cbrs-olive-600 mt-2">
-                Property Recovery
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+              Water & Fire<br />
+              Damage Restoration<br />
+              <span className="text-cbrs-terracotta-600">Done Right</span>
             </h1>
           </FadeIn>
 
-          {/* Subheadline with visual separation */}
+          {/* Subheadline */}
           <FadeIn delay={300}>
-            <p className="text-xl md:text-2xl text-neutral-600 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
-              Comprehensive property damage solutions including restoration, inspections, claims support, and design services
+            <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed max-w-2xl mx-auto">
+              Complete property damage solutions — from water extraction to fire damage rebuild. One dedicated team managing your entire project.
             </p>
           </FadeIn>
 
-          {/* Service badges preview */}
+          {/* Service stats */}
           <FadeIn delay={400}>
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-              {['Restoration', 'Inspections', 'Claims Support', 'Design', 'Organization'].map(service => (
-                <span
-                  key={service}
-                  className="px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-neutral-200 text-sm font-medium text-neutral-700 shadow-sm"
-                >
-                  {service}
-                </span>
+            <div className="flex flex-wrap items-center justify-center gap-10 mb-10 border-t border-white/10 pt-6">
+              {[
+                { value: '9', label: 'Service Pillars' },
+                { value: '100+', label: 'Projects Completed' },
+                { value: 'Houston', label: 'Service Area' },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="font-heading text-2xl md:text-3xl font-bold text-cbrs-terracotta-600">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-white/50">{stat.label}</p>
+                </div>
               ))}
             </div>
           </FadeIn>
 
-          {/* CTAs with better visual hierarchy */}
+          {/* CTAs */}
           <FadeIn delay={500}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-cbrs-navy-800 hover:bg-cbrs-navy-900 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-250 hover:scale-105"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-cbrs-terracotta-600 hover:bg-cbrs-terracotta-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-250 hover:scale-105"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -94,9 +80,9 @@ export default function HeroSection({
 
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-neutral-50 text-cbrs-navy-800 font-semibold rounded-xl border-2 border-neutral-200 hover:border-cbrs-navy-800 shadow-sm hover:shadow-md transition-all duration-250"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-transparent hover:bg-white/5 text-white font-semibold rounded-lg border border-white/20 hover:border-white/40 shadow-sm hover:shadow-md transition-all duration-250"
               >
-                <span>Explore Services</span>
+                <span>Request Free Estimate</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -104,13 +90,6 @@ export default function HeroSection({
             </div>
           </FadeIn>
         </div>
-      </div>
-
-      {/* Bottom wave separator */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" className="w-full h-auto text-white fill-current">
-          <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" />
-        </svg>
       </div>
     </section>
   );
