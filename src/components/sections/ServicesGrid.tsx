@@ -1,7 +1,6 @@
 import React from 'react';
-import { ServiceCard } from '@/components/ui/ServiceCard';
+import Link from 'next/link';
 import { services } from '@/config/site';
-import FadeIn from '@/components/animations/FadeIn';
 
 interface ServicesGridProps {
   title?: string;
@@ -11,8 +10,8 @@ interface ServicesGridProps {
 }
 
 export default function ServicesGrid({
-  title = 'Our Services',
-  subtitle = 'Comprehensive property damage restoration services for your home or business',
+  title = 'Our Service Pillars',
+  subtitle = 'Complete property damage solutions across 9 specialized service areas',
   featuredOnly = true,
   columns = 3,
 }: ServicesGridProps) {
@@ -20,44 +19,55 @@ export default function ServicesGrid({
     ? services.filter(service => service.featured)
     : services;
 
-  const gridCols = columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
+  const gridCols = columns === 2 ? 'md:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
-    <section className="py-20 px-6">
-      <div className="container max-w-7xl mx-auto">
+    <section className="bg-neutral-50 py-16 md:py-24">
+      <div className="container mx-auto px-4">
         {/* Section header */}
-        <FadeIn delay={100}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-primary mb-4">
-              {title}
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              {subtitle}
-            </p>
-          </div>
-        </FadeIn>
+        <div className="text-center mb-12">
+          <p className="text-sm font-semibold text-cbrs-terracotta-600 mb-2">Our Services</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-cbrs-navy-900 mb-4">
+            {title}
+          </h2>
+          <p className="text-neutral-600 mt-4 max-w-2xl mx-auto">
+            {subtitle}
+          </p>
+        </div>
 
         {/* Services grid */}
-        <div className={`grid grid-cols-1 ${gridCols} gap-8`}>
-          {displayServices.map((service, index) => (
-            <FadeIn key={service.id} delay={200 + index * 100}>
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                href={service.href}
-                color={service.color}
-              />
-            </FadeIn>
+        <div className={`grid grid-cols-1 ${gridCols} gap-6`}>
+          {displayServices.map((service) => (
+            <Link
+              key={service.id}
+              href={service.href}
+              className="rounded-2xl bg-white p-8 shadow-sm hover:shadow-md transition-shadow group block"
+            >
+              <div className="h-12 w-12 rounded-xl bg-cbrs-terracotta-600/10 flex items-center justify-center mb-5 group-hover:bg-cbrs-terracotta-600/20 transition-colors">
+                <span className="text-2xl">{service.icon}</span>
+              </div>
+              <h3 className="font-heading font-semibold text-cbrs-navy-900 mb-2 text-lg">
+                {service.title}
+              </h3>
+              <p className="text-sm text-neutral-600 leading-relaxed mb-4">
+                {service.description}
+              </p>
+              <span className="inline-flex items-center gap-1 text-sm font-semibold text-cbrs-terracotta-600 group-hover:gap-2 transition-all">
+                Learn More
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
           ))}
         </div>
 
         {/* View all services link (if showing featured only) */}
         {featuredOnly && services.length > displayServices.length && (
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full text-cbrs-primary font-semibold hover:bg-white hover:shadow-lg transition-all group"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-cbrs-navy-900 font-semibold hover:shadow-lg transition-all group border border-neutral-200"
             >
               View All Services
               <svg
@@ -73,7 +83,7 @@ export default function ServicesGrid({
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         )}
       </div>
