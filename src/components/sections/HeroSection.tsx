@@ -22,7 +22,7 @@ export default function HeroSection({
       <div className="container relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Trust indicator badge */}
-          <FadeIn delay={100} direction="down">
+          <FadeIn delay={100} direction="down" className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm mb-8">
               <span className="h-1.5 w-1.5 rounded-full bg-cbrs-terracotta-600" />
               <span className="text-sm font-medium text-white/80">
@@ -32,8 +32,8 @@ export default function HeroSection({
           </FadeIn>
 
           {/* Main headline with orange accent */}
-          <FadeIn delay={200}>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
+          <FadeIn delay={200} className="text-center w-full">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white text-center">
               Water & Fire<br />
               Damage Restoration<br />
               <span className="text-cbrs-terracotta-600">Done Right</span>
@@ -41,15 +41,15 @@ export default function HeroSection({
           </FadeIn>
 
           {/* Subheadline */}
-          <FadeIn delay={300}>
-            <p className="text-base md:text-lg text-white/60 mb-8 leading-relaxed max-w-2xl mx-auto">
+          <FadeIn delay={300} className="text-center w-full">
+            <p className="text-base md:text-lg text-white/60 mb-8 leading-relaxed max-w-2xl mx-auto text-center">
               Complete property damage solutions — from water extraction to fire damage rebuild. One dedicated team managing your entire project.
             </p>
           </FadeIn>
 
           {/* Service stats */}
-          <FadeIn delay={400}>
-            <div className="flex flex-wrap items-center justify-center gap-8 mb-8 border-t border-white/10 pt-4">
+          <FadeIn delay={400} className="w-full">
+            <div className="flex flex-wrap items-center justify-center gap-8 mb-8 border-t border-white/10 pt-4 w-full">
               {[
                 { value: '9', label: 'Service Pillars' },
                 { value: '100+', label: 'Projects Completed' },
@@ -66,8 +66,8 @@ export default function HeroSection({
           </FadeIn>
 
           {/* CTAs */}
-          <FadeIn delay={500}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <FadeIn delay={500} className="w-full">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-cbrs-terracotta-600 hover:bg-cbrs-terracotta-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-250 hover:scale-105"
