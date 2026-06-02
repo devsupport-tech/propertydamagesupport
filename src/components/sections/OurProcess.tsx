@@ -1,8 +1,3 @@
-'use client';
-
-import React from 'react';
-import FadeIn from '@/components/animations/FadeIn';
-
 export default function OurProcess() {
   const processSteps = [
     {
@@ -55,45 +50,41 @@ export default function OurProcess() {
   return (
     <section className="py-20 px-6 bg-white">
       <div className="container max-w-7xl mx-auto">
-        <FadeIn delay={100}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-navy-900 mb-4">
-              Our Process
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              A streamlined approach to property damage solutions from initial contact to final completion
-            </p>
-          </div>
-        </FadeIn>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-navy-900 mb-4">
+            Our Process
+          </h2>
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            A streamlined approach to property damage solutions from initial contact to final completion
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Connection line for desktop */}
           <div className="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-service-restoration via-service-estimating via-service-claims to-service-legal opacity-20" style={{ width: '85%', left: '7.5%' }} />
 
           {processSteps.map((process, index) => (
-            <FadeIn key={index} delay={200 + index * 150}>
-              <div className="relative h-full">
-                <div className="bg-white rounded-2xl border-2 border-neutral-200 p-8 hover:border-neutral-300 hover:shadow-xl transition-all group h-full">
-                  {/* Step number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-cbrs-navy-900 text-white flex items-center justify-center font-bold text-lg shadow-lg">
-                    {process.step}
-                  </div>
-
-                  {/* Icon */}
-                  <div className={`inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${process.gradient} text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                    {process.icon}
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
-                    {process.title}
-                  </h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                    {process.description}
-                  </p>
+            <div key={index} className="relative h-full">
+              <div className="bg-white rounded-2xl border-2 border-neutral-200 p-8 hover:border-neutral-300 hover:shadow-xl transition-all group h-full">
+                {/* Step number */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-cbrs-navy-900 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                  {process.step}
                 </div>
+
+                {/* Icon */}
+                <div className={`inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${process.gradient} text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                  {process.icon}
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
+                  {process.title}
+                </h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {process.description}
+                </p>
               </div>
-            </FadeIn>
+            </div>
           ))}
         </div>
       </div>

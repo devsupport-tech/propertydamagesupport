@@ -1,10 +1,8 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { siteConfig, services, serviceAreas } from '@/config/site';
 
-export default function Header() {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
@@ -38,20 +36,16 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="flex items-center gap-3 group-hover:scale-105 transition-transform">
-              <div className="w-10 h-10 bg-cbrs-terracotta-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clipRule="evenodd" />
-                </svg>
+              <div className="w-12 h-12 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-olive-600 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-2xl font-heading">C</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-heading text-xl font-bold text-cbrs-navy-900 leading-tight">
                   CBRS Group
                 </span>
-                <span className="text-xs text-neutral-600 font-semibold leading-tight uppercase tracking-wide">
-                  Property Damage Support
-                </span>
+                <span className="text-xs text-neutral-600 leading-tight">Property Solutions</span>
               </div>
             </div>
           </Link>
@@ -88,7 +82,7 @@ export default function Header() {
                   {featuredServices.map((service) => (
                     <Link
                       key={service.id}
-                      href={service.href}
+                      to={service.href}
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-all group"
                       onClick={() => setServicesOpen(false)}
                     >
@@ -138,7 +132,7 @@ export default function Header() {
                     {serviceAreas.tier1.map((area) => (
                       <Link
                         key={area.slug}
-                        href={`/service-areas/${area.slug}`}
+                        to={`/service-areas/${area.slug}`}
                         className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
                         onClick={() => setAreasOpen(false)}
                       >
@@ -148,7 +142,7 @@ export default function Header() {
                   </div>
                   <div className="mt-3 pt-3 border-t border-neutral-200">
                     <Link
-                      href="/service-areas"
+                      to="/service-areas"
                       className="text-cbrs-terracotta-600 hover:text-cbrs-terracotta-700 text-sm font-semibold"
                       onClick={() => setAreasOpen(false)}
                     >
@@ -160,21 +154,21 @@ export default function Header() {
             </div>
 
             <Link
-              href="/insurance-help"
+              to="/insurance-help"
               className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
             >
               Insurance Help
             </Link>
 
             <Link
-              href="/about"
+              to="/about"
               className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
             >
               About
             </Link>
 
             <Link
-              href="/contact"
+              to="/contact"
               className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
             >
               Contact
@@ -234,7 +228,7 @@ export default function Header() {
                   {featuredServices.map((service) => (
                     <Link
                       key={service.id}
-                      href={service.href}
+                      to={service.href}
                       className="text-neutral-700 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -252,7 +246,7 @@ export default function Header() {
                   {serviceAreas.tier1.map((area) => (
                     <Link
                       key={area.slug}
-                      href={`/service-areas/${area.slug}`}
+                      to={`/service-areas/${area.slug}`}
                       className="text-neutral-700 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -263,7 +257,7 @@ export default function Header() {
               </div>
 
               <Link
-                href="/insurance-help"
+                to="/insurance-help"
                 className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -271,7 +265,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/about"
+                to="/about"
                 className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -279,7 +273,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/contact"
+                to="/contact"
                 className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

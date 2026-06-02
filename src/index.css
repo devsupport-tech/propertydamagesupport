@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0d2237;
+
+  /* CBRS Navy (Primary Brand) */
+  --cbrs-navy-900: #0d2237;
+  --cbrs-navy-800: #0d2237;
+  --cbrs-navy-700: #2A4A6A;
+  --cbrs-navy-600: #3D5A7D;
+
+  /* CBRS Olive (Secondary) */
+  --cbrs-olive-700: #5A6B2E;
+  --cbrs-olive-600: #6B7F35;
+  --cbrs-olive-500: #7D9240;
+  --cbrs-olive-400: #A4BC6A;
+
+  /* CBRS Terracotta/Orange (Accent) */
+  --cbrs-terracotta-700: #B54515;
+  --cbrs-terracotta-600: #E8691A;
+  --cbrs-terracotta-500: #E8753F;
+  --cbrs-terracotta-400: #F2935F;
+
+  /* Service Pillar Colors */
+  --service-restoration: #2563EB;
+  --service-estimating: #7C3AED;
+  --service-claims: #059669;
+  --service-design: #EC4899;
+  --service-organization: #F59E0B;
+  --service-inspection: #06B6D4;
+  --service-drone: #0EA5E9;
+  --service-legal: #8B5CF6;
+
+  /* Neutral Scale */
+  --neutral-50: #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E1;
+  --neutral-400: #94A3B8;
+  --neutral-500: #64748B;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+
+  /* Functional Colors */
+  --success-50: #ECFDF5;
+  --success-500: #10B981;
+  --success-700: #047857;
+
+  /* Fonts */
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 350ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--cbrs-navy-800);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--cbrs-navy-900);
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cbrs-terracotta-600);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--cbrs-terracotta-600);
+  color: white;
+}
+
+/* CBRS Glass Card Effect */
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Transition utilities */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}

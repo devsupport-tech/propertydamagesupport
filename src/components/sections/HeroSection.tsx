@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { siteConfig } from '@/config/site';
 import TrustBadges from '@/components/ui/TrustBadges';
-import FadeIn from '@/components/animations/FadeIn';
 
 interface HeroSectionProps {
   headline?: string;
@@ -55,15 +55,15 @@ export default function HeroSection({
               {siteConfig.phone}
             </a>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-8 py-4 text-base font-semibold text-white hover:bg-white/5 hover:border-white/40 transition-colors"
             >
               Request Free Estimate
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Stats row */}

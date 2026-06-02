@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { services } from '@/config/site';
 
 interface ServicesGridProps {
@@ -23,7 +23,7 @@ export default function ServicesGrid({
 
   return (
     <section className="bg-neutral-50 py-16 md:py-24">
-      <div className="container mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-cbrs-terracotta-600 mb-2">Our Services</p>
@@ -40,7 +40,7 @@ export default function ServicesGrid({
           {displayServices.map((service) => (
             <Link
               key={service.id}
-              href={service.href}
+              to={service.href}
               className="rounded-2xl bg-white p-8 shadow-sm hover:shadow-md transition-shadow group block"
             >
               <div className="h-12 w-12 rounded-xl bg-cbrs-terracotta-600/10 flex items-center justify-center mb-5 group-hover:bg-cbrs-terracotta-600/20 transition-colors">
@@ -66,7 +66,7 @@ export default function ServicesGrid({
         {featuredOnly && services.length > displayServices.length && (
           <div className="text-center mt-12">
             <Link
-              href="/services"
+              to="/services"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-cbrs-navy-900 font-semibold hover:shadow-lg transition-all group border border-neutral-200"
             >
               View All Services
