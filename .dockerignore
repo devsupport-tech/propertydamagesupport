@@ -4,14 +4,17 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Next.js
+# Next.js (legacy)
 .next
 out
 .turbo
 
+# Vite
+dist
+*.local
+
 # Production
 build
-dist
 
 # Misc
 .DS_Store

@@ -1,8 +1,8 @@
-# Multi-stage Dockerfile for Next.js 16 (Turbopack)
+# Multi-stage Dockerfile for Vite React App
 
-# Stage 1: Dependencies
-FROM node:20-alpine AS deps
-RUN apk add --no-cache libc6-compat
+# Stage 1: Build
+FROM node:20-alpine AS builder
+
 WORKDIR /app
 
 # Copy package files
@@ -11,47 +11,31 @@ COPY package.json package-lock.json* ./
 # Install dependencies
 RUN npm ci
 
-# Stage 2: Builder
-FROM node:20-alpine AS builder
-WORKDIR /app
-
-# Copy dependencies from deps stage
-COPY --from=deps /app/node_modules ./node_modules
-
 # Copy all source files
 COPY . .
 
-# Set production environment
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-
-# Build the Next.js app
+# Build the Vite app
 RUN npm run build
 
-# Stage 3: Runner
-FROM node:20-alpine AS runner
-WORKDIR /app
+# Stage 2: Production with nginx
+FROM nginx:alpine AS runner
 
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Create non-root user
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# Copy built assets from builder
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy necessary files from builder
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# Create non-root user for nginx
+RUN chown -R nginx:nginx /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chmod -R 755 /usr/share/nginx/html
 
-# Change ownership to nextjs user
-RUN chown -R nextjs:nodejs /app
-
-USER nextjs
+# Use non-root user
+USER nginx
 
 EXPOSE 3000
 
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
