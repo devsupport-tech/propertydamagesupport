@@ -225,7 +225,7 @@ export default function AboutPage() {
                   </svg>
                 ),
                 title: 'Client Satisfaction',
-                description: 'Not satisfied? We'll make it right. Your complete satisfaction is our commitment on every project.',
+                description: 'Not satisfied? We\'ll make it right. Your complete satisfaction is our commitment on every project.',
               },
             ].map((item, index) => (
               <div key={index} className="p-8 bg-white rounded-2xl border border-neutral-200 hover:border-neutral-300 shadow-md hover:shadow-xl transition-all group">
