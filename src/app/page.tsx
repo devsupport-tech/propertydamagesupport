@@ -14,19 +14,19 @@ export default function Home() {
       {/* Services Grid - Card Navigation Hub */}
       <ServicesGrid
         title="Our Service Pillars"
-        subtitle="Complete property damage solutions across 8 specialized service areas"
+        subtitle="Complete property damage solutions across 9 specialized service areas"
         featuredOnly={true}
         columns={3}
       />
 
       {/* Service Areas Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 px-6 bg-neutral-50">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-primary mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-navy-900 mb-4">
               Serving Greater Houston
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto">
               Fast response times to all major cities in the Houston metro area
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function Home() {
                 href={`/service-areas/${city.slug}`}
                 className="flex items-center justify-center p-4 glass-card rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all group"
               >
-                <span className="text-center font-semibold text-cbrs-primary group-hover:text-cbrs-accent transition-colors">
+                <span className="text-center font-semibold text-cbrs-navy-900 group-hover:text-cbrs-terracotta-600 transition-colors">
                   {city.name}
                 </span>
               </Link>
@@ -49,7 +49,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/service-areas"
-              className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full text-cbrs-primary font-semibold hover:bg-white hover:shadow-lg transition-all group"
+              className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full text-cbrs-navy-900 font-semibold hover:bg-white hover:shadow-lg transition-all group"
             >
               View All Service Areas
               <svg
@@ -93,7 +93,7 @@ export default function Home() {
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                   </svg>
                 ),
-                title: '8 Service Pillars',
+                title: '9 Service Pillars',
                 description: 'Comprehensive property damage solutions across specialized service areas',
                 gradient: 'from-service-restoration to-service-drone',
               },
@@ -150,7 +150,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Contact CTA Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-cbrs-primary to-cbrs-accent">
+      <section className="py-16 px-6 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-terracotta-700">
         <div className="container max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get Professional Property Damage Support
@@ -161,16 +161,21 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-cbrs-primary text-lg font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-cbrs-terracotta-700 text-lg font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
             >
-              <span className="text-2xl">📞</span>
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
               {siteConfig.phone}
             </a>
             <a
               href="/contact"
               className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white text-lg font-bold rounded-full hover:bg-white/20 transition-all"
             >
-              <span className="text-2xl">✉️</span>
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
               Contact Us
             </a>
           </div>
