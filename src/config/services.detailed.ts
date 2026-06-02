@@ -432,6 +432,95 @@ export const serviceHubs: Record<string, ServiceHub> = {
       },
     ],
   },
+  'packout-services': {
+    id: 'packout-services',
+    title: 'Packout & Storage Services',
+    slug: 'packout-services',
+    description: 'Professional contents packing, inventory cataloging, secure climate-controlled storage, and complete pack-back services during restoration.',
+    icon: '📦',
+    color: 'orange',
+    heroHeadline: 'Complete Packout & Storage Solutions',
+    heroSubheadline: 'Professional packing · Secure storage · Detailed inventory',
+    subServices: [
+      {
+        id: 'emergency-packout',
+        title: 'Emergency Packout',
+        slug: 'emergency-packout',
+        description: 'Rapid contents removal and packing to prevent further damage.',
+        shortDescription: 'Emergency contents removal',
+        keywords: ['emergency packout', 'rapid packing', 'contents removal', 'immediate packout'],
+      },
+      {
+        id: 'detailed-inventory',
+        title: 'Detailed Inventory',
+        slug: 'detailed-inventory',
+        description: 'Professional cataloging with photos and condition documentation.',
+        shortDescription: 'Professional inventory cataloging',
+        keywords: ['inventory', 'cataloging', 'item documentation', 'photo inventory'],
+      },
+      {
+        id: 'climate-controlled-storage',
+        title: 'Climate-Controlled Storage',
+        slug: 'climate-controlled-storage',
+        description: 'Secure storage facilities with temperature and humidity control.',
+        shortDescription: 'Secure climate-controlled storage',
+        keywords: ['storage', 'climate controlled', 'secure storage', 'facility storage'],
+      },
+      {
+        id: 'pack-back-services',
+        title: 'Pack-Back Services',
+        slug: 'pack-back-services',
+        description: 'Complete contents return and placement after restoration is complete.',
+        shortDescription: 'Complete pack-back service',
+        keywords: ['pack back', 'contents return', 'placement', 'move back'],
+      },
+      {
+        id: 'cleaning-restoration',
+        title: 'Contents Cleaning',
+        slug: 'contents-cleaning',
+        description: 'Professional cleaning and restoration of salvageable items.',
+        shortDescription: 'Professional contents cleaning',
+        keywords: ['contents cleaning', 'item restoration', 'smoke damage cleaning', 'water damage cleaning'],
+      },
+      {
+        id: 'electronics-handling',
+        title: 'Electronics & Specialty Items',
+        slug: 'electronics-handling',
+        description: 'Specialized handling for electronics, artwork, and valuable items.',
+        shortDescription: 'Specialized item handling',
+        keywords: ['electronics', 'valuable items', 'artwork', 'specialty packing'],
+      },
+    ],
+    processSteps: [
+      { number: 1, title: 'Assessment', description: 'Survey all contents and create packing plan', icon: '📋' },
+      { number: 2, title: 'Professional Packing', description: 'Careful packing with proper materials', icon: '📦' },
+      { number: 3, title: 'Inventory Documentation', description: 'Photo and detailed item catalog', icon: '📸' },
+      { number: 4, title: 'Secure Storage', description: 'Climate-controlled facility storage', icon: '🏢' },
+      { number: 5, title: 'Pack-Back', description: 'Return and placement after restoration', icon: '🏠' },
+    ],
+    faqs: [
+      {
+        question: 'When is packout service necessary?',
+        answer: 'Packout is needed when extensive restoration work requires contents removal, when items need protection from ongoing damage, or when you need temporary living space during repairs.',
+      },
+      {
+        question: 'How do you inventory my belongings?',
+        answer: 'We create a detailed inventory with photos, condition notes, and room-by-room organization. You receive a complete digital inventory for insurance documentation.',
+      },
+      {
+        question: 'Is my property insured during storage?',
+        answer: 'Yes, all stored contents are covered by our commercial insurance. We also work with your homeowners insurance for claim coverage of the packout and storage costs.',
+      },
+      {
+        question: 'How long can items be stored?',
+        answer: 'Items can be stored as long as needed during your restoration project. Typical storage duration is 2-8 weeks, but we accommodate longer timeframes when necessary.',
+      },
+      {
+        question: 'Do you clean items before returning them?',
+        answer: 'Yes, we clean and restore salvageable items before pack-back. This includes smoke odor removal, water damage cleaning, and sanitization as needed.',
+      },
+    ],
+  },
 };
 
 // Export helper functions
