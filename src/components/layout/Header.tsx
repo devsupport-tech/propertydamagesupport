@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig, services, serviceAreas } from '@/config/site';
 
 export default function Header() {
@@ -39,11 +40,17 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-cbrs-navy-800 to-cbrs-navy-900 rounded-xl group-hover:scale-105 transition-all shadow-md">
-              <span className="text-white text-2xl font-bold">P</span>
+            <div className="relative w-32 h-12 group-hover:scale-105 transition-transform">
+              <Image
+                src="/images/cbrs-logo.svg"
+                alt="CBRS Group - Property Damage Support"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-cbrs-navy-900 leading-tight group-hover:text-cbrs-terracotta-600 transition-colors">
+            <div className="hidden md:flex flex-col border-l-2 border-neutral-300 pl-3">
+              <span className="text-sm font-bold text-cbrs-navy-900 leading-tight">
                 Property Damage
               </span>
               <span className="text-xs text-cbrs-olive-600 font-semibold leading-tight uppercase tracking-wide">
