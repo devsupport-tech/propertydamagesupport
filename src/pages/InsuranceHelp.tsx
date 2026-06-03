@@ -10,6 +10,11 @@ export default function InsuranceHelpPage() {
       <Helmet>
         <title>Insurance Claims Help | CBRS Group</title>
         <meta name="description" content="Expert guidance for navigating property damage insurance claims. Documentation, adjuster communication, claim filing, and dispute resolution services." />
+        <link rel="canonical" href="https://cbrsgroup.com/insurance-help" />
+        <meta property="og:url" content="https://cbrsgroup.com/insurance-help" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Insurance Claims Help | CBRS Group" />
+        <meta property="og:description" content="Expert guidance for navigating property damage insurance claims. Documentation, adjuster communication, claim filing, and dispute resolution services." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

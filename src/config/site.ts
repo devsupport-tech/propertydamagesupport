@@ -1,10 +1,10 @@
-// Site Configuration - PropertyDamageSupport.com
+// Site Configuration - CBRS Group
 
 export const siteConfig = {
-  name: "Property Damage Support",
+  name: "CBRS Group",
   legalName: "CBRS Group",
   description: "Complete property damage solutions in Houston: restoration, inspections, claims support, packout services, design & expert witness services. 9 specialized service pillars.",
-  url: "https://propertydamagesupport.com",
+  url: "https://cbrsgroup.com",
   phone: "(832) 608-0535",
   phoneRaw: "+18326080535",
   email: "support@cbrsgroup.com",
@@ -16,13 +16,14 @@ export const siteConfig = {
     full: "Houston, TX",
   },
   social: {
-    facebook: "https://facebook.com/propertydamagesupport",
-    instagram: "https://instagram.com/propertydamagesupport",
+    facebook: "https://www.facebook.com/profile.php?id=61564870028363",
+    instagram: "https://www.instagram.com/cbrsgroup",
     linkedin: "https://linkedin.com/company/cbrs-group",
-    youtube: "https://youtube.com/@propertydamagesupport",
+    youtube: "https://youtube.com/@cbrsgroup",
+    tiktok: "https://www.tiktok.com/@cbrs.group",
   },
   relatedSites: {
-    cbrsGroup: "https://cbrsgroup.com",
+    propertyDamageSupport: "https://propertydamagesupport.com",
     restoration: "https://restoration.cbrsgroup.com",
     claimToCompletion: "https://claimtocompletion.com",
   },

@@ -14,6 +14,9 @@ const Index = () => {
       <Helmet>
         <title>CBRS Group | Houston Property Damage Support & Emergency Restoration Services</title>
         <meta name="description" content="CBRS Group - Houston's trusted restoration experts. 24/7 emergency water damage, fire damage, inspections & claims support. Call (832) 608-0535." />
+        <link rel="canonical" href="https://cbrsgroup.com/" />
+        <meta property="og:url" content="https://cbrsgroup.com/" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="min-h-screen">

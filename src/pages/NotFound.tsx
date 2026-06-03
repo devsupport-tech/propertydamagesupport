@@ -9,6 +9,7 @@ const NotFound = () => {
       <Helmet>
         <title>Page Not Found | CBRS Group</title>
         <meta name="description" content="The page you're looking for could not be found." />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

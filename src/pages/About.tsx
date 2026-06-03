@@ -10,6 +10,11 @@ export default function AboutPage() {
       <Helmet>
         <title>About Us | CBRS Group</title>
         <meta name="description" content="Professional property damage solutions in Houston. 9 specialized service pillars, licensed professionals, and comprehensive property support services." />
+        <link rel="canonical" href="https://cbrsgroup.com/about" />
+        <meta property="og:url" content="https://cbrsgroup.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About Us | CBRS Group" />
+        <meta property="og:description" content="Professional property damage solutions in Houston. 9 specialized service pillars, licensed professionals, and comprehensive property support services." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

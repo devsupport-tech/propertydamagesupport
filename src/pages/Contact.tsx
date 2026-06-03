@@ -61,6 +61,11 @@ export default function ContactPage() {
       <Helmet>
         <title>Contact Us | CBRS Group</title>
         <meta name="description" content="Contact CBRS Group for professional property damage support in Houston. Free consultations and fast response." />
+        <link rel="canonical" href="https://cbrsgroup.com/contact" />
+        <meta property="og:url" content="https://cbrsgroup.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contact Us | CBRS Group" />
+        <meta property="og:description" content="Contact CBRS Group for professional property damage support in Houston. Free consultations and fast response." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
