@@ -5,6 +5,8 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import InsuranceHelp from "./pages/InsuranceHelp";
+import ServiceAreasIndex from "./pages/service-areas/ServiceAreasIndex";
+import CityPage from "./pages/service-areas/CityPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/insurance-help" element={<InsuranceHelp />} />
+          <Route path="/service-areas" element={<ServiceAreasIndex />} />
+          <Route path="/service-areas/:city" element={<CityPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
