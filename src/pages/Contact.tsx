@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/seo/SeoHead';
+import { buildBreadcrumb, buildContactPage } from '@/components/seo/schema';
 import { siteConfig } from '@/config/site';
 
 export default function ContactPage() {
@@ -58,15 +59,19 @@ export default function ContactPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | CBRS Group</title>
-        <meta name="description" content="Contact CBRS Group for professional property damage support in Houston. Free consultations and fast response." />
-        <link rel="canonical" href="https://cbrsgroup.com/contact" />
-        <meta property="og:url" content="https://cbrsgroup.com/contact" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Contact Us | CBRS Group" />
-        <meta property="og:description" content="Contact CBRS Group for professional property damage support in Houston. Free consultations and fast response." />
-      </Helmet>
+      <SeoHead
+        title="Contact CBRS Group — 24/7 Houston Property Damage Dispatch"
+        description="Reach CBRS Group dispatch for emergency property damage restoration in Houston. 24/7 response, free estimates, insurance billing accepted. Call (832) 608-0535 or request a written estimate online."
+        path="/contact"
+        keywords="contact CBRS Group, Houston restoration phone number, emergency property damage Houston, free restoration estimate Houston"
+        jsonLd={[
+          buildContactPage(),
+          buildBreadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Contact', path: '/contact' },
+          ]),
+        ]}
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />

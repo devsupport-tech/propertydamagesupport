@@ -1,16 +1,17 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/seo/SeoHead';
 
 const NotFound = () => {
   return (
     <>
-      <Helmet>
-        <title>Page Not Found | CBRS Group</title>
-        <meta name="description" content="The page you're looking for could not be found." />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SeoHead
+        title="Page Not Found"
+        description="The page you're looking for could not be found. Browse our property damage restoration services or contact CBRS Group dispatch."
+        path="/404"
+        noindex
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />

@@ -1,21 +1,53 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/seo/SeoHead';
+import { buildBreadcrumb, buildFaqPage } from '@/components/seo/schema';
 import { siteConfig } from '@/config/site';
+
+const insuranceFaq = [
+  {
+    question: 'Why are property damage insurance claims so complex?',
+    answer: 'Insurance companies require extensive documentation, photos, estimates, and proof of damage. Missing or incomplete documentation can delay or reduce your claim. Policies are filled with technical terms and exclusions, adjusters work for the carrier, and missed deadlines can result in denial.',
+  },
+  {
+    question: 'Do you provide Xactimate estimates that insurance companies accept?',
+    answer: 'Yes. CBRS Group provides industry-standard Xactimate estimates that insurance companies recognize and accept. Our detailed scope of work includes labor, materials, and all necessary repairs.',
+  },
+  {
+    question: 'Will you communicate with my insurance adjuster directly?',
+    answer: 'Yes. We handle all communication with insurance adjusters, ensuring nothing is missed and all damage is properly documented and included in your claim.',
+  },
+  {
+    question: 'What documentation do you provide for an insurance claim?',
+    answer: 'Complete photo and video documentation of all damage, including infrared thermal imaging, drone inspections for roofs and hard-to-reach areas, and a detailed Xactimate scope of work.',
+  },
+  {
+    question: 'What if my claim is denied or underpaid?',
+    answer: 'If your claim is disputed or underpaid, we provide expert witness testimony and advocate for fair compensation based on industry standards.',
+  },
+  {
+    question: 'How quickly should I file a property damage claim?',
+    answer: 'Most policies require prompt notification — typically within days of the loss. Contact CBRS Group as soon as damage occurs so we can document the scene before mitigation work begins and help you meet your carrier’s deadlines.',
+  },
+];
 
 export default function InsuranceHelpPage() {
   return (
     <>
-      <Helmet>
-        <title>Insurance Claims Help | CBRS Group</title>
-        <meta name="description" content="Expert guidance for navigating property damage insurance claims. Documentation, adjuster communication, claim filing, and dispute resolution services." />
-        <link rel="canonical" href="https://cbrsgroup.com/insurance-help" />
-        <meta property="og:url" content="https://cbrsgroup.com/insurance-help" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Insurance Claims Help | CBRS Group" />
-        <meta property="og:description" content="Expert guidance for navigating property damage insurance claims. Documentation, adjuster communication, claim filing, and dispute resolution services." />
-      </Helmet>
+      <SeoHead
+        title="Insurance Claims Help — Property Damage Documentation & Xactimate | CBRS Group"
+        description="Expert insurance claim support for Houston property damage: Xactimate estimates, complete documentation, adjuster communication, and claim advocacy. Maximize your payout. Call (832) 608-0535."
+        path="/insurance-help"
+        keywords="property damage insurance claim help Houston, Xactimate estimate Houston, insurance adjuster help Texas, denied insurance claim Houston, public adjuster Houston, claim documentation service"
+        jsonLd={[
+          buildFaqPage(insuranceFaq),
+          buildBreadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Insurance Help', path: '/insurance-help' },
+          ]),
+        ]}
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />

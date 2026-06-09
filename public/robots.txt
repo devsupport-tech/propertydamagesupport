@@ -1,9 +1,40 @@
-# Allow all crawlers
+# CBRS Group — robots policy
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /404
+Disallow: /admin/
 
-# Sitemap location
-Sitemap: https://cbrsgroup.com/sitemap.xml
-
-# Crawl-delay for polite crawling
+# Be polite — most user-agents will respect this
 Crawl-delay: 1
+
+# Specific bot rules: allow Googlebot full speed
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# Block known abusive scrapers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# AI training crawlers — allow business pages, disallow if you prefer to opt out
+# (Comment out these blocks if you want AI assistants to surface CBRS content.)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ClaudeBot
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+
+# Sitemap
+Sitemap: https://cbrsgroup.com/sitemap.xml

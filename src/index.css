@@ -1,84 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Big+Shoulders+Text:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #0d2237;
+  --navy: #0d2237;
+  --navy-soft: #1a3550;
+  --navy-mid: #2A4A6A;
+  --terra: #E8691A;
+  --terra-hot: #d15b15;
+  --terra-deep: #B54515;
+  --cream: #F5F1E8;
+  --cream-50: #FAF7EF;
+  --cream-200: #EBE3D2;
+  --steel: #1a1d20;
+  --steel-mid: #2C3338;
+  --paper-rule: rgba(13, 34, 55, 0.12);
+  --paper-rule-strong: rgba(13, 34, 55, 0.32);
 
-  /* CBRS Navy (Primary Brand) */
-  --cbrs-navy-900: #0d2237;
-  --cbrs-navy-800: #0d2237;
-  --cbrs-navy-700: #2A4A6A;
-  --cbrs-navy-600: #3D5A7D;
-
-  /* CBRS Olive (Secondary) */
-  --cbrs-olive-700: #5A6B2E;
-  --cbrs-olive-600: #6B7F35;
-  --cbrs-olive-500: #7D9240;
-  --cbrs-olive-400: #A4BC6A;
-
-  /* CBRS Terracotta/Orange (Accent) */
-  --cbrs-terracotta-700: #B54515;
-  --cbrs-terracotta-600: #E8691A;
-  --cbrs-terracotta-500: #E8753F;
-  --cbrs-terracotta-400: #F2935F;
-
-  /* Service Pillar Colors */
-  --service-restoration: #2563EB;
-  --service-estimating: #7C3AED;
-  --service-claims: #059669;
-  --service-design: #EC4899;
-  --service-organization: #F59E0B;
-  --service-inspection: #06B6D4;
-  --service-drone: #0EA5E9;
-  --service-legal: #8B5CF6;
-
-  /* Neutral Scale */
-  --neutral-50: #F8FAFC;
-  --neutral-100: #F1F5F9;
-  --neutral-200: #E2E8F0;
-  --neutral-300: #CBD5E1;
-  --neutral-400: #94A3B8;
-  --neutral-500: #64748B;
-  --neutral-600: #475569;
-  --neutral-700: #334155;
-  --neutral-800: #1E293B;
-  --neutral-900: #0F172A;
-
-  /* Functional Colors */
-  --success-50: #ECFDF5;
-  --success-500: #10B981;
-  --success-700: #047857;
-
-  /* Fonts */
-  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
-
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-base: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
-  --radius-full: 9999px;
-
-  /* Transitions */
-  --duration-fast: 150ms;
-  --duration-base: 250ms;
-  --duration-slow: 350ms;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: 'Big Shoulders Display', 'Oswald', Impact, sans-serif;
+  --font-condensed: 'Big Shoulders Text', 'Oswald', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 * {
@@ -89,60 +33,264 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--cream);
 }
 
 body {
-  background-color: #ffffff;
-  color: var(--cbrs-navy-800);
+  background-color: var(--cream);
+  color: var(--navy);
   font-family: var(--font-body);
+  font-feature-settings: 'kern' 1, 'liga' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--cbrs-navy-900);
+/* Use :where() to give these rules zero specificity so Tailwind text-* utilities always win */
+:where(h1, h2, h3, h4, h5, h6, .font-display) {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.92;
+  color: var(--navy);
 }
 
-/* Focus styles for accessibility */
+.font-condensed {
+  font-family: var(--font-condensed);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--terra);
+  color: var(--cream);
+}
+
+/* Focus */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--cbrs-terracotta-600);
-  outline-offset: 2px;
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
 }
 
-/* Selection color */
-::selection {
-  background-color: var(--cbrs-terracotta-600);
-  color: white;
+/* === Industrial primitives === */
+
+/* Hazard stripes — diagonal navy/terracotta caution-tape bands */
+.hazard-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--terra) 0 14px,
+    var(--navy) 14px 28px
+  );
+}
+.hazard-stripe-thin {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--terra) 0 8px,
+    var(--navy) 8px 16px
+  );
 }
 
-/* CBRS Glass Card Effect */
+/* Hairline rules */
+.hairline      { border-color: var(--paper-rule); }
+.hairline-t    { border-top: 1px solid var(--paper-rule); }
+.hairline-b    { border-bottom: 1px solid var(--paper-rule); }
+.hairline-l    { border-left: 1px solid var(--paper-rule); }
+.hairline-r    { border-right: 1px solid var(--paper-rule); }
+.rule-strong-b { border-bottom: 2px solid var(--navy); }
+.rule-strong-t { border-top: 2px solid var(--navy); }
+.rule-double-b {
+  border-bottom: 1px solid var(--navy);
+  box-shadow: inset 0 -5px 0 var(--cream), inset 0 -6px 0 var(--navy);
+}
+
+/* Stencil — IBM Plex Mono uppercase wide-tracked.
+   Base class deliberately has NO color so it inherits / lets modifiers win.
+   The :where() wrapper drops specificity to 0 on color-bearing modifiers
+   so Tailwind text-* utilities can always override when needed. */
+.stencil {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  /* color is inherited — set with a modifier class or a Tailwind text-* utility */
+}
+:where(.stencil-navy)        { color: var(--navy); }
+:where(.stencil-terra)       { color: var(--terra); }
+:where(.stencil-cream)       { color: var(--cream); }
+:where(.stencil-faint)       { color: rgba(13, 34, 55, 0.5); }
+:where(.stencil-cream-faint) { color: rgba(245, 241, 232, 0.6); }
+
+/* Serial number — tabular mono */
+.serial {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* Stamp — distressed rubber-stamp look for "VERIFIED", "ON SITE" etc */
+.stamp {
+  display: inline-block;
+  border: 3px solid currentColor;
+  padding: 0.35em 0.75em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transform: rotate(-3deg);
+  color: var(--terra-deep);
+  background: transparent;
+  position: relative;
+}
+
+/* Asphalt texture — dark surfaces */
+.tex-asphalt {
+  background-color: var(--navy);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 50%),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.06'/></svg>");
+  background-size: cover, cover, 220px 220px;
+}
+
+/* Concrete texture — light surfaces */
+.tex-concrete {
+  background-color: var(--cream);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05  0 0 0 0 0.13  0 0 0 0 0.22  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  background-blend-mode: multiply;
+}
+
+.tex-noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* Blueprint grid — alternate registration mark */
+.tex-blueprint {
+  background-image:
+    linear-gradient(to right, rgba(245, 241, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 241, 232, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Marquee track */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+
+/* Row hover for industrial lists */
+.row-hover {
+  position: relative;
+  transition: padding-left 280ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 280ms ease;
+}
+.row-hover::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--terra);
+  transition: width 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.row-hover:hover::before { width: 6px; }
+.row-hover:hover { padding-left: 1rem; }
+
+/* Stagger reveal on load */
+.rise > * {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise > *:nth-child(1) { animation-delay: 0ms; }
+.rise > *:nth-child(2) { animation-delay: 80ms; }
+.rise > *:nth-child(3) { animation-delay: 160ms; }
+.rise > *:nth-child(4) { animation-delay: 240ms; }
+.rise > *:nth-child(5) { animation-delay: 320ms; }
+.rise > *:nth-child(6) { animation-delay: 400ms; }
+.rise > *:nth-child(7) { animation-delay: 480ms; }
+.rise > *:nth-child(8) { animation-delay: 560ms; }
+.rise > *:nth-child(9) { animation-delay: 640ms; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsing status dot */
+.pulse-dot {
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.75); }
+}
+
+/* Legacy glass-card — repointed to flat panel */
 .glass-card {
-  border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--paper-rule);
+  backdrop-filter: blur(8px);
 }
 
-/* Transition utilities */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+/* Slim, generous container */
+.field-container {
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
-/* Reveal animations */
+/* Slab — heavy navy blocks with sharp corners and inner padding */
+.slab {
+  background-color: var(--navy);
+  color: var(--cream);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+}
+.slab-cream {
+  background-color: var(--cream);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+}
+
+/* Stagger reveal kept for legacy */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
 }
-
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .rise > *, .pulse-dot, .marquee-track {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .row-hover { transition: none; }
 }

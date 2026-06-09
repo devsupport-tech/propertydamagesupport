@@ -1,298 +1,195 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, services, serviceAreas } from '@/config/site';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [areasOpen, setAreasOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const featured = services.filter((s) => s.featured);
 
-  const featuredServices = services.filter((s) => s.featured);
+  useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const navLinks = [
+    { to: '/service-areas', label: 'Service Areas' },
+    { to: '/insurance-help', label: 'Insurance' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-neutral-200 shadow-sm">
-      {/* Top Bar - Professional */}
-      <div className="bg-gradient-to-r from-cbrs-navy-900 to-cbrs-navy-800 text-white py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <span className="hidden sm:inline flex items-center gap-2">
-            <svg className="w-4 h-4 text-cbrs-terracotta-400" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span>Professional Property Damage Solutions</span>
-          </span>
+    <header className="sticky top-0 z-50">
+      {/* Hazard stripe band at the very top */}
+      <div className="hazard-stripe-thin h-1.5" />
+
+      {/* Ticker strip — cream type on navy */}
+      <div className="bg-cbrs-navy-900" style={{ color: '#F5F1E8' }}>
+        <div className="field-container flex items-center justify-between gap-6 py-2 text-cream">
+          <div className="flex items-center gap-3 stencil text-cream">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-cbrs-terracotta-500 pulse-dot shrink-0" />
+            <span className="hidden sm:inline">24 / 7 EMERGENCY RESPONSE</span>
+            <span className="sm:hidden">24/7 ACTIVE</span>
+            <span className="hidden md:inline opacity-40">·</span>
+            <span className="hidden md:inline opacity-70">LICENSED · INSURED · IICRC</span>
+          </div>
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="font-semibold hover:text-cbrs-terracotta-400 flex items-center gap-2 transition-colors"
+            className="stencil text-cream hover:text-cbrs-terracotta-400 transition-colors whitespace-nowrap"
           >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-            <span>{siteConfig.phone}</span>
+            ↪ DISPATCH&nbsp; {siteConfig.phone}
           </a>
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex items-center gap-3 group-hover:scale-105 transition-transform">
-              <div className="w-12 h-12 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-olive-600 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-2xl font-heading">C</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-bold text-cbrs-navy-900 leading-tight">
-                  CBRS Group
-                </span>
-                <span className="text-xs text-neutral-600 leading-tight">Property Solutions</span>
-              </div>
+      {/* Main bar — heavy cream */}
+      <div
+        className={`bg-cream-50 border-b-2 border-cbrs-navy-900 transition-shadow duration-300 ${
+          scrolled ? 'shadow-[0_2px_0_rgba(13,34,55,0.08)]' : ''
+        }`}
+      >
+        <div className="field-container flex items-center justify-between gap-6 h-[64px]">
+          {/* Wordmark */}
+          <Link to="/" className="group flex items-center gap-3">
+            <div
+              className="flex items-center justify-center w-10 h-10 bg-cbrs-navy-900 group-hover:bg-cbrs-terracotta-600 transition-colors shrink-0"
+              style={{ color: '#F5F1E8' }}
+            >
+              <span
+                className="font-display font-black text-2xl leading-none"
+                style={{ letterSpacing: '-0.04em', color: '#F5F1E8' }}
+              >
+                C
+              </span>
+            </div>
+            <div className="flex flex-col justify-center leading-none gap-1">
+              <span
+                className="font-display font-black text-xl text-cbrs-navy-900 tracking-tight"
+                style={{ letterSpacing: '-0.01em' }}
+              >
+                CBRS&nbsp;GROUP
+              </span>
+              <span className="stencil text-cbrs-navy-900/55 text-[10px]">
+                FIELD DIVISION&nbsp;·&nbsp;HOU TX
+              </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
-            {/* Services Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setServicesOpen(!servicesOpen);
-                  setAreasOpen(false);
-                }}
-                className="flex items-center gap-1 text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-7">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="stencil text-cbrs-navy-900 hover:text-cbrs-terracotta-600 transition-colors relative group"
               >
-                Services
-                <svg
-                  className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+                <span>{l.label}</span>
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-cbrs-terracotta-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </Link>
+            ))}
+          </nav>
 
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-neutral-200 p-4 grid grid-cols-1 gap-2">
-                  {featuredServices.map((service) => (
-                    <Link
-                      key={service.id}
-                      to={service.href}
-                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-all group"
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      <span className="text-2xl group-hover:scale-110 transition-transform">{service.icon}</span>
-                      <div>
-                        <div className="font-semibold text-cbrs-navy-900 group-hover:text-cbrs-terracotta-600 transition-colors">
-                          {service.title}
-                        </div>
-                        <div className="text-sm text-neutral-600 line-clamp-1">
-                          {service.description}
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Service Areas Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setAreasOpen(!areasOpen);
-                  setServicesOpen(false);
-                }}
-                className="flex items-center gap-1 text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-              >
-                Service Areas
-                <svg
-                  className={`w-4 h-4 transition-transform ${areasOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {areasOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-neutral-200 p-4">
-                  <div className="grid grid-cols-2 gap-2">
-                    {serviceAreas.tier1.map((area) => (
-                      <Link
-                        key={area.slug}
-                        to={`/service-areas/${area.slug}`}
-                        className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
-                        onClick={() => setAreasOpen(false)}
-                      >
-                        {area.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-neutral-200">
-                    <Link
-                      to="/service-areas"
-                      className="text-cbrs-terracotta-600 hover:text-cbrs-terracotta-700 text-sm font-semibold"
-                      onClick={() => setAreasOpen(false)}
-                    >
-                      View All Areas →
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link
-              to="/insurance-help"
-              className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-            >
-              Insurance Help
-            </Link>
-
-            <Link
-              to="/about"
-              className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-            >
-              About
-            </Link>
-
-            <Link
-              to="/contact"
-              className="text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href={`tel:${siteConfig.phoneRaw}`}
-              className="bg-cbrs-navy-800 hover:bg-cbrs-navy-900 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              <span>Get Started</span>
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-cbrs-navy-900 hover:text-cbrs-terracotta-600 transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          {/* CTA — height-matched to the nav bar so it doesn't poke out */}
+          <a
+            href={`tel:${siteConfig.phoneRaw}`}
+            className="hidden lg:inline-flex items-center h-10 bg-cbrs-terracotta-600 hover:bg-cbrs-navy-900 transition-colors group"
+            style={{ color: '#F5F1E8' }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <span className="px-4 stencil text-cream border-r border-cream/30 self-stretch flex items-center">
+              CALL NOW
+            </span>
+            <span
+              className="px-4 font-display font-bold text-base tracking-tight text-cream self-stretch flex items-center"
+              style={{ letterSpacing: '-0.01em' }}
             >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              {siteConfig.phone}
+            </span>
+          </a>
+
+          {/* Mobile toggle */}
+          <button
+            className="lg:hidden text-cbrs-navy-900 p-2"
+            aria-label="Menu"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2.5">
+              {mobileOpen ? (
+                <path d="M7 7 L21 21 M21 7 L7 21" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <>
+                  <path d="M4 9 H24" />
+                  <path d="M4 19 H24" />
+                </>
               )}
             </svg>
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-neutral-200">
-            <div className="space-y-4">
-              <div>
-                <div className="font-bold text-cbrs-navy-900 mb-2 text-sm uppercase tracking-wide">Services</div>
-                <div className="grid grid-cols-2 gap-2 pl-4">
-                  {featuredServices.map((service) => (
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-cream-50 border-b-2 border-cbrs-navy-900">
+          <div className="field-container py-8 space-y-8">
+            <div>
+              <div className="stencil stencil-faint mb-4">SERVICE LINES</div>
+              <ul className="border-t border-cbrs-navy-900/20">
+                {featured.map((s, i) => (
+                  <li key={s.id} className="border-b border-cbrs-navy-900/20">
                     <Link
-                      key={service.id}
-                      to={service.href}
-                      className="text-neutral-700 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
+                      to={s.href}
+                      className="flex items-baseline gap-4 py-3 row-hover"
                     >
-                      {service.icon} {service.shortTitle}
+                      <span className="serial text-cbrs-navy-900/50 text-sm">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="font-display font-extrabold text-xl text-cbrs-navy-900 uppercase tracking-tight">
+                        {s.shortTitle}
+                      </span>
                     </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <div className="font-bold text-cbrs-navy-900 mb-2 text-sm uppercase tracking-wide">
-                  Service Areas
-                </div>
-                <div className="grid grid-cols-2 gap-2 pl-4">
-                  {serviceAreas.tier1.map((area) => (
-                    <Link
-                      key={area.slug}
-                      to={`/service-areas/${area.slug}`}
-                      className="text-neutral-700 hover:text-cbrs-terracotta-600 py-1 font-medium transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {area.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                to="/insurance-help"
-                className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Insurance Help
-              </Link>
-
-              <Link
-                to="/about"
-                className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-
-              <Link
-                to="/contact"
-                className="block text-cbrs-navy-900 hover:text-cbrs-terracotta-600 font-semibold transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-
-              <a
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="flex items-center justify-center gap-2 bg-cbrs-navy-800 hover:bg-cbrs-navy-900 text-white text-center px-6 py-3 rounded-xl font-semibold transition-all shadow-lg"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <span>Call {siteConfig.phone}</span>
-              </a>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            <div>
+              <div className="stencil stencil-faint mb-4">METRO HOUSTON</div>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {serviceAreas.tier1.map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      to={`/service-areas/${a.slug}`}
+                      className="font-condensed font-bold text-lg text-cbrs-navy-700 hover:text-cbrs-terracotta-600 transition-colors"
+                    >
+                      {a.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-t-2 border-cbrs-navy-900 pt-6 space-y-2">
+              {navLinks.map((l) => (
+                <Link key={l.to} to={l.to} className="block stencil stencil-navy">
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+
+            <a
+              href={`tel:${siteConfig.phoneRaw}`}
+              className="flex items-center justify-between bg-cbrs-terracotta-600 text-cream px-5 py-4"
+            >
+              <span className="stencil stencil-cream">CALL DISPATCH</span>
+              <span className="font-display font-bold text-lg">{siteConfig.phone}</span>
+            </a>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   );
 }

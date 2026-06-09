@@ -1,216 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ============ STATIC PAGES ============ -->
   <url>
     <loc>https://cbrsgroup.com/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- About Page -->
   <url>
     <loc>https://cbrsgroup.com/about</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Contact Page -->
   <url>
     <loc>https://cbrsgroup.com/contact</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Insurance Help Page -->
   <url>
     <loc>https://cbrsgroup.com/insurance-help</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Service Areas Index -->
   <url>
     <loc>https://cbrsgroup.com/service-areas</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Tier 1 Service Areas -->
+  <!-- ============ TIER 1 — PRIMARY METRO ============ -->
   <url>
     <loc>https://cbrsgroup.com/service-areas/houston</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cbrsgroup.com/service-areas/katy</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cbrsgroup.com/service-areas/sugar-land</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cbrsgroup.com/service-areas/pearland</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cbrsgroup.com/service-areas/the-woodlands</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cbrsgroup.com/service-areas/cypress</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Tier 2 Service Areas -->
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/spring</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/humble</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/pasadena</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/league-city</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/missouri-city</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/richmond</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/rosenberg</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/conroe</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/tomball</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/friendswood</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- ============ TIER 2 — EXTENDED ============ -->
+  <url><loc>https://cbrsgroup.com/service-areas/spring</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/humble</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/pasadena</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/league-city</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/missouri-city</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/richmond</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/rosenberg</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/conroe</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/tomball</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/friendswood</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <!-- Tier 3 Service Areas -->
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/baytown</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/galveston</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/texas-city</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/deer-park</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/la-porte</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/seabrook</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/webster</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/clear-lake</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/kingwood</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/atascocita</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/bellaire</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cbrsgroup.com/service-areas/west-university</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- ============ TIER 3 — ADDITIONAL COMMUNITIES ============ -->
+  <url><loc>https://cbrsgroup.com/service-areas/baytown</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/galveston</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/texas-city</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/deer-park</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/la-porte</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/seabrook</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/webster</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/clear-lake</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/kingwood</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/atascocita</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/bellaire</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://cbrsgroup.com/service-areas/west-university</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

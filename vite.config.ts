@@ -5,10 +5,11 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: true, // bind to all interfaces — IPv4 + IPv6, fixes localhost on Windows
     port: 3000,
+    strictPort: true,
     hmr: {
-      overlay: false,
+      overlay: true, // show build errors in the browser instead of silently dying
     },
   },
   plugins: [react()].filter(Boolean),

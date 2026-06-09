@@ -1,7 +1,12 @@
-import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/seo/SeoHead';
+import {
+  buildBreadcrumb,
+  buildCityLocalBusiness,
+  buildService,
+} from '@/components/seo/schema';
 import { allServiceAreas, services, siteConfig } from '@/config/site';
 
 export default function CityPage() {
@@ -13,18 +18,38 @@ export default function CityPage() {
   }
 
   const cityName = city.name;
+  const cityUrl = `https://cbrsgroup.com/service-areas/${slug}`;
+
+  const serviceSchemas = services
+    .filter((s) => s.featured)
+    .slice(0, 6)
+    .map((s) =>
+      buildService({
+        name: `${s.title} in ${cityName}, TX`,
+        description: s.description,
+        serviceType: s.title,
+        url: cityUrl,
+        areaName: cityName,
+      })
+    );
 
   return (
     <>
-      <Helmet>
-        <title>Property Damage Restoration in {cityName}, TX | CBRS Group</title>
-        <meta name="description" content={`24/7 emergency property damage restoration services in ${cityName}, Texas. Water damage, fire damage, storm damage, and mold remediation.`} />
-        <link rel="canonical" href={`https://cbrsgroup.com/service-areas/${slug}`} />
-        <meta property="og:url" content={`https://cbrsgroup.com/service-areas/${slug}`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={`Property Damage Restoration in ${cityName}, TX | CBRS Group`} />
-        <meta property="og:description" content={`24/7 emergency property damage restoration services in ${cityName}, Texas. Water damage, fire damage, storm damage, and mold remediation.`} />
-      </Helmet>
+      <SeoHead
+        title={`${cityName} Property Damage Restoration — Water, Fire, Storm, Mold · 24/7 | CBRS Group`}
+        description={`24/7 emergency property damage restoration in ${cityName}, TX. Water damage, fire damage, storm restoration, mold remediation, drone inspections, and insurance claim support. Licensed & insured. Call (832) 608-0535.`}
+        path={`/service-areas/${slug}`}
+        keywords={`${cityName} water damage, ${cityName} fire damage restoration, ${cityName} storm damage repair, ${cityName} mold remediation, property damage restoration ${cityName} TX, emergency restoration ${cityName}, insurance claim help ${cityName}`}
+        jsonLd={[
+          buildCityLocalBusiness({ cityName, citySlug: slug! }),
+          ...serviceSchemas,
+          buildBreadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Service Areas', path: '/service-areas' },
+            { name: cityName, path: `/service-areas/${slug}` },
+          ]),
+        ]}
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />

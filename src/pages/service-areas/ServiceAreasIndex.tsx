@@ -1,21 +1,32 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { serviceAreas, siteConfig } from '@/config/site';
+import SeoHead from '@/components/seo/SeoHead';
+import { buildBreadcrumb, buildItemList } from '@/components/seo/schema';
+import { serviceAreas, siteConfig, allServiceAreas } from '@/config/site';
 
 export default function ServiceAreasPage() {
   return (
     <>
-      <Helmet>
-        <title>Service Areas in Houston Metro | CBRS Group</title>
-        <meta name="description" content="Emergency property damage restoration services serving Houston, Katy, Sugar Land, The Woodlands, Pearland, Cypress, and surrounding areas." />
-        <link rel="canonical" href="https://cbrsgroup.com/service-areas" />
-        <meta property="og:url" content="https://cbrsgroup.com/service-areas" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Service Areas in Houston Metro | CBRS Group" />
-        <meta property="og:description" content="Emergency property damage restoration services serving Houston, Katy, Sugar Land, The Woodlands, Pearland, Cypress, and surrounding areas." />
-      </Helmet>
+      <SeoHead
+        title="Houston Metro Service Areas — 28+ Cities & Neighborhoods | CBRS Group"
+        description="24/7 emergency property damage restoration across the Houston metro: Houston, Katy, Sugar Land, Pearland, The Woodlands, Cypress, Spring, Humble, Pasadena, League City, Conroe, Tomball, Galveston, Bellaire, and more. Call (832) 608-0535."
+        path="/service-areas"
+        keywords="Houston restoration service areas, property damage restoration Houston metro, Katy water damage, Sugar Land fire damage, Pearland storm damage, The Woodlands mold remediation"
+        jsonLd={[
+          buildItemList({
+            name: 'Houston Metro Service Areas',
+            items: allServiceAreas.map((c) => ({
+              name: `${c.name}, TX`,
+              url: `https://cbrsgroup.com/service-areas/${c.slug}`,
+            })),
+          }),
+          buildBreadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Service Areas', path: '/service-areas' },
+          ]),
+        ]}
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />

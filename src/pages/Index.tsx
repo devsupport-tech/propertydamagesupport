@@ -1,200 +1,324 @@
-import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import ServicesGrid from '@/components/sections/ServicesGrid';
 import OurProcess from '@/components/sections/OurProcess';
 import Testimonials from '@/components/sections/Testimonials';
-import { siteConfig, serviceAreas } from '@/config/site';
-import { Link } from 'react-router-dom';
+import SeoHead from '@/components/seo/SeoHead';
+import { buildBreadcrumb } from '@/components/seo/schema';
+import { siteConfig, serviceAreas, allServiceAreas } from '@/config/site';
+
+const benefits = [
+  {
+    num: '01',
+    title: '9 Service Pillars',
+    body: 'Comprehensive property damage solutions across specialized service areas.',
+    note: 'INTEGRATED PRACTICE',
+  },
+  {
+    num: '02',
+    title: 'Licensed & Certified',
+    body: 'IICRC-certified professionals with industry expertise and credentials.',
+    note: 'IICRC · LICENSED · BONDED',
+  },
+  {
+    num: '03',
+    title: 'Insurance Support',
+    body: 'Professional documentation and inspection services for claim submission.',
+    note: 'XACTIMATE · CARRIER LIAISON',
+  },
+  {
+    num: '04',
+    title: 'Professional Service',
+    body: 'Quality workmanship and comprehensive property damage expertise.',
+    note: 'CONCIERGE METHOD',
+  },
+];
 
 const Index = () => {
   return (
     <>
-      <Helmet>
-        <title>CBRS Group | Houston Property Damage Support & Emergency Restoration Services</title>
-        <meta name="description" content="CBRS Group - Houston's trusted restoration experts. 24/7 emergency water damage, fire damage, inspections & claims support. Call (832) 608-0535." />
-        <link rel="canonical" href="https://cbrsgroup.com/" />
-        <meta property="og:url" content="https://cbrsgroup.com/" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SeoHead
+        title="Houston Property Damage Restoration · 24/7 Water, Fire, Storm, Mold | CBRS Group"
+        description="Houston's trusted property damage restoration experts. 24/7 emergency water damage, fire damage, storm restoration, mold remediation, drone inspections & insurance claim support. Licensed & insured. Call (832) 608-0535."
+        path="/"
+        keywords="property damage restoration Houston, water damage Houston, fire damage Houston, storm damage Houston, mold remediation Houston, emergency restoration Houston, Xactimate estimates, insurance claim help Texas, drone roof inspection, packout services Houston"
+        jsonLd={buildBreadcrumb([{ name: 'Home', path: '/' }])}
+      />
 
-      <div className="min-h-screen">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-cbrs-navy-900 focus:text-cream focus:px-4 focus:py-2"
+      >
+        Skip to main content
+      </a>
+
+      <div className="min-h-screen bg-cream text-cbrs-navy-900">
         <Navbar />
 
-        {/* Hero Section */}
+        <main id="main">
+        {/* I. Hero */}
         <HeroSection />
 
-        {/* Services Grid */}
+        {/* II. Service lines */}
         <ServicesGrid
           title="Our Service Pillars"
           subtitle="Complete property damage solutions across 9 specialized service areas"
           featuredOnly={true}
-          columns={3}
         />
 
-        {/* Service Areas Section */}
-        <section className="py-20 px-6 bg-neutral-50">
-          <div className="container max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-navy-900 mb-4">
-                Serving Greater Houston
-              </h2>
-              <p className="text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto">
-                Fast response times to all major cities in the Houston metro area
-              </p>
+        {/* — Houston metro */}
+        <section className="relative bg-cream-50 py-16 md:py-24 border-y-2 border-cbrs-navy-900 overflow-hidden">
+          {/* City names marquee — quieter */}
+          <div className="overflow-hidden py-4 border-b-2 border-cbrs-navy-900 mb-12 bg-cbrs-navy-900">
+            <div className="marquee-track">
+              {[...Array(3)].flatMap((_, k) =>
+                allServiceAreas.map((a, i) => (
+                  <div
+                    key={`${k}-${i}`}
+                    className="flex items-center gap-5 px-6 whitespace-nowrap"
+                  >
+                    <span
+                      className="font-display font-black text-cream uppercase leading-none"
+                      style={{
+                        fontSize: 'clamp(1.5rem, 3.5vw, 3rem)',
+                        letterSpacing: '-0.02em',
+                      }}
+                    >
+                      {a.name}
+                    </span>
+                    <span className="text-cbrs-terracotta-500 text-xl leading-none">●</span>
+                  </div>
+                ))
+              )}
             </div>
+          </div>
 
-            {/* Tier 1 Cities Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-              {serviceAreas.tier1.map((city) => (
+          <div className="field-container">
+            <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
+              {/* Header */}
+              <div className="col-span-12 lg:col-span-4">
+                <div className="stencil stencil-terra mb-2">✦ SECTION V</div>
+                <h2
+                  className="font-display font-black text-cbrs-navy-900 uppercase mb-5"
+                  style={{
+                    fontSize: 'clamp(1.875rem, 3.6vw, 3rem)',
+                    lineHeight: '0.95',
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  SERVING <span className="text-cbrs-terracotta-600">GREATER HOUSTON</span>
+                </h2>
+                <p className="text-cbrs-navy-700 text-sm md:text-base leading-relaxed max-w-md mb-6">
+                  Fast response times to all major cities in the Houston metro area.
+                  Twenty-eight registered neighborhoods, one accountable team.
+                </p>
+                <div className="border-2 border-cbrs-navy-900 inline-block px-4 py-3">
+                  <div className="stencil stencil-faint mb-1">CITIES SERVED</div>
+                  <div
+                    className="font-display font-black text-cbrs-terracotta-600 leading-none"
+                    style={{ fontSize: '3rem', letterSpacing: '-0.04em' }}
+                  >
+                    {allServiceAreas.length}
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 1 grid */}
+              <div className="col-span-12 lg:col-span-8">
+                <div className="stencil stencil-faint mb-4">TIER 01 · PRIORITY METRO</div>
+                <ul className="grid grid-cols-2 md:grid-cols-3 border-l-2 border-t-2 border-cbrs-navy-900">
+                  {serviceAreas.tier1.map((city, i) => (
+                    <li key={city.slug} className="border-r-2 border-b-2 border-cbrs-navy-900">
+                      <Link
+                        to={`/service-areas/${city.slug}`}
+                        className="group flex flex-col gap-1.5 p-4 hover:bg-cbrs-navy-900 transition-colors h-full"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="serial text-cbrs-navy-900/50 group-hover:text-cream/50 text-[11px] transition-colors">
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <span className="stencil stencil-faint group-hover:text-cream/50 transition-colors">TX</span>
+                        </div>
+                        <span
+                          className="font-display font-black text-cbrs-navy-900 group-hover:text-cream uppercase leading-[0.95] tracking-tight transition-colors"
+                          style={{ fontSize: 'clamp(1.25rem, 1.8vw, 1.5rem)', letterSpacing: '-0.015em' }}
+                        >
+                          {city.name}
+                        </span>
+                        <span className="stencil stencil-faint group-hover:text-cbrs-terracotta-500 transition-colors">
+                          METRO HOU
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
                 <Link
-                  key={city.slug}
-                  to={`/service-areas/${city.slug}`}
-                  className="flex items-center justify-center p-4 glass-card rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all group"
+                  to="/service-areas"
+                  className="mt-5 inline-flex items-center gap-3 stencil stencil-navy hover:text-cbrs-terracotta-600 transition-colors"
                 >
-                  <span className="text-center font-semibold text-cbrs-navy-900 group-hover:text-cbrs-terracotta-600 transition-colors">
-                    {city.name}
-                  </span>
+                  ALL SERVICE AREAS
+                  <svg width="22" height="10" viewBox="0 0 22 10" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M0 5 H20 M16 1 L20 5 L16 9" />
+                  </svg>
                 </Link>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/service-areas"
-                className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full text-cbrs-navy-900 font-semibold hover:bg-white hover:shadow-lg transition-all group"
-              >
-                View All Service Areas
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Our Process Section */}
+        {/* III. Process */}
         <OurProcess />
 
-        {/* Why Choose Us Section */}
-        <section className="py-20 px-6 bg-gradient-to-br from-neutral-50 to-white">
-          <div className="container max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-cbrs-navy-900 mb-4">
-                Why Choose Property Damage Support?
-              </h2>
-              <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                Professional expertise and comprehensive solutions for all your property damage needs
-              </p>
+        {/* — Why choose us: 4 badge slabs */}
+        <section className="relative bg-cream-50 py-16 md:py-24">
+          <div className="absolute inset-0 tex-concrete opacity-30 pointer-events-none" />
+          <div className="relative field-container">
+            <div className="grid grid-cols-12 gap-6 lg:gap-10 mb-12 border-b-2 border-cbrs-navy-900 pb-8 items-end">
+              <div className="col-span-12 lg:col-span-3">
+                <div className="stencil stencil-terra mb-2">✦ SECTION VI</div>
+                <div className="serial text-cbrs-navy-900 text-xl font-semibold">
+                  WHY <span className="text-cbrs-navy-900/40">/</span> CBRS
+                </div>
+              </div>
+              <div className="col-span-12 lg:col-span-9">
+                <h2
+                  className="font-display font-black text-cbrs-navy-900 uppercase"
+                  style={{
+                    fontSize: 'clamp(1.875rem, 3.6vw, 3rem)',
+                    lineHeight: '0.95',
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  WHY CHOOSE PROPERTY DAMAGE <span className="text-cbrs-terracotta-600">SUPPORT?</span>
+                </h2>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                    </svg>
-                  ),
-                  title: '9 Service Pillars',
-                  description: 'Comprehensive property damage solutions across specialized service areas',
-                  gradient: 'from-service-restoration to-service-drone',
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  ),
-                  title: 'Licensed & Certified',
-                  description: 'IICRC-certified professionals with industry expertise and credentials',
-                  gradient: 'from-success-500 to-service-claims',
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                      <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
-                    </svg>
-                  ),
-                  title: 'Insurance Support',
-                  description: 'Professional documentation and inspection services for claim submission',
-                  gradient: 'from-service-estimating to-service-legal',
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ),
-                  title: 'Professional Service',
-                  description: 'Quality workmanship and comprehensive property damage expertise',
-                  gradient: 'from-cbrs-terracotta-600 to-cbrs-olive-600',
-                },
-              ].map((benefit, index) => (
-                <div
-                  key={index}
-                  className="group text-center p-8 bg-white rounded-2xl border border-neutral-200 hover:border-neutral-300 shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l-2 border-t-2 border-cbrs-navy-900">
+              {benefits.map((b) => (
+                <article
+                  key={b.num}
+                  className="flex flex-col border-r-2 border-b-2 border-cbrs-navy-900 p-7 bg-cream-50 hover:bg-cbrs-navy-900 group transition-colors"
                 >
-                  <div className={`inline-flex items-center justify-center w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                    {benefit.icon}
+                  <div
+                    className="font-display font-black text-cbrs-terracotta-600 group-hover:text-cbrs-terracotta-500 leading-none mb-5 transition-colors"
+                    style={{ fontSize: '3.5rem', letterSpacing: '-0.04em' }}
+                  >
+                    {b.num}
                   </div>
-                  <h3 className="text-xl font-bold text-cbrs-navy-900 mb-3">
-                    {benefit.title}
+                  <h3
+                    className="font-display font-black text-cbrs-navy-900 group-hover:text-cream uppercase leading-[0.95] tracking-tight transition-colors mb-2.5"
+                    style={{ fontSize: 'clamp(1.125rem, 1.6vw, 1.375rem)' }}
+                  >
+                    {b.title}
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed">{benefit.description}</p>
-                </div>
+                  <p className="text-cbrs-navy-700 group-hover:text-cream/75 text-sm leading-relaxed mb-5 transition-colors flex-grow">
+                    {b.body}
+                  </p>
+                  <div className="pt-3 border-t border-cbrs-navy-900/20 group-hover:border-cream/20 transition-colors">
+                    <span className="stencil text-cbrs-navy-900/60 group-hover:text-cbrs-terracotta-500 transition-colors">
+                      {b.note}
+                    </span>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        {/* IV. Testimonials */}
         <Testimonials />
 
-        {/* Contact CTA Section */}
-        <section className="py-16 px-6 bg-gradient-to-br from-cbrs-terracotta-600 to-cbrs-terracotta-700">
-          <div className="container max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get Professional Property Damage Support
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Contact us to discuss your property damage needs and explore our comprehensive service solutions
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-cbrs-terracotta-700 text-lg font-bold rounded-full shadow-2xl hover:scale-105 transition-all"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                {siteConfig.phone}
-              </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white text-lg font-bold rounded-full hover:bg-white/20 transition-all"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                Contact Us
-              </Link>
+        {/* — Contact CTA: heavy navy slab */}
+        <section className="relative tex-asphalt text-cream py-16 md:py-24 overflow-hidden">
+          <div className="absolute inset-0 tex-blueprint pointer-events-none" />
+
+          <div className="relative field-container">
+            <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div className="col-span-12 lg:col-span-7">
+                <div className="stencil stencil-terra mb-4">
+                  ✦ SECTION VII · ENGAGE
+                </div>
+                <h2
+                  className="font-display font-black text-cream uppercase"
+                  style={{
+                    fontSize: 'clamp(2rem, 4.4vw, 3.5rem)',
+                    lineHeight: '0.95',
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  GET PROFESSIONAL PROPERTY DAMAGE <span className="text-cbrs-terracotta-500">SUPPORT</span>
+                </h2>
+
+                <p className="mt-6 max-w-xl text-cream/80 text-base md:text-lg leading-relaxed">
+                  Contact us to discuss your property damage needs and explore our
+                  comprehensive service solutions.
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <a
+                    href={`tel:${siteConfig.phoneRaw}`}
+                    className="group inline-flex items-stretch bg-cbrs-terracotta-600 hover:bg-cream hover:text-cbrs-navy-900 text-cream transition-colors"
+                  >
+                    <span className="px-4 py-3 stencil stencil-cream group-hover:text-cbrs-navy-900 border-r border-cream/30 group-hover:border-cbrs-navy-900/30 flex items-center transition-colors">
+                      CALL DISPATCH
+                    </span>
+                    <span className="px-4 py-3 font-display font-bold text-base md:text-lg flex items-center tracking-tight">
+                      {siteConfig.phone}
+                    </span>
+                  </a>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-3 px-1 py-2 stencil stencil-cream relative group"
+                  >
+                    <span>WRITTEN ESTIMATE FORM</span>
+                    <svg width="22" height="10" viewBox="0 0 22 10" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M0 5 H20 M16 1 L20 5 L16 9" />
+                    </svg>
+                    <span className="absolute left-0 right-0 bottom-0 h-px bg-cream scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Engagement brief card */}
+              <div className="col-span-12 lg:col-span-5">
+                <div className="border-2 border-cream/30 p-6">
+                  <div className="flex items-baseline justify-between border-b border-cream/30 pb-3">
+                    <span className="stencil stencil-cream">ENGAGEMENT BRIEF</span>
+                    <span className="stencil stencil-cream-faint">No. CBRS-07</span>
+                  </div>
+
+                  <div className="pt-4 space-y-4">
+                    {[
+                      { l: 'RESPONSE',        v: 'Same Day' },
+                      { l: 'ESTIMATE',        v: 'No Cost' },
+                      { l: 'CARRIER LIAISON', v: 'Included' },
+                      { l: 'SCOPE',           v: 'All 9 Lines', accent: true },
+                    ].map((row, i) => (
+                      <div key={row.l} className={i > 0 ? 'border-t border-cream/20 pt-4' : ''}>
+                        <div className="stencil stencil-cream-faint">{row.l}</div>
+                        <div
+                          className={`font-display font-black uppercase leading-none mt-1 tracking-tight ${
+                            row.accent ? 'text-cbrs-terracotta-500' : 'text-cream'
+                          }`}
+                          style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2rem)', letterSpacing: '-0.02em' }}
+                        >
+                          {row.v}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
+
+        </main>
 
         <Footer />
       </div>

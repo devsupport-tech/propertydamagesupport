@@ -1,21 +1,26 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/seo/SeoHead';
+import { buildAboutPage, buildBreadcrumb } from '@/components/seo/schema';
 import { siteConfig } from '@/config/site';
 
 export default function AboutPage() {
   return (
     <>
-      <Helmet>
-        <title>About Us | CBRS Group</title>
-        <meta name="description" content="Professional property damage solutions in Houston. 9 specialized service pillars, licensed professionals, and comprehensive property support services." />
-        <link rel="canonical" href="https://cbrsgroup.com/about" />
-        <meta property="og:url" content="https://cbrsgroup.com/about" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="About Us | CBRS Group" />
-        <meta property="og:description" content="Professional property damage solutions in Houston. 9 specialized service pillars, licensed professionals, and comprehensive property support services." />
-      </Helmet>
+      <SeoHead
+        title="About CBRS Group — Houston Property Damage Restoration Practice"
+        description="CBRS Group is Houston's integrated property damage practice: restoration, inspections, claims support, drone services, design, and expert witness. Licensed, insured, IICRC certified. 9 service pillars under one accountable team."
+        path="/about"
+        keywords="about CBRS Group, Houston restoration company, property damage practice Houston, IICRC certified restoration, licensed insured restoration Houston"
+        jsonLd={[
+          buildAboutPage(),
+          buildBreadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+        ]}
+      />
 
       <div className="min-h-screen flex flex-col">
         <Navbar />
